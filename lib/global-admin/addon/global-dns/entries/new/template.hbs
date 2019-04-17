@@ -20,6 +20,15 @@
        showExpand=false
     }}
       <div class="row">
+        <div class="col span-12">
+          {{#banner-message icon="icon-info" color="bg-info mb-0 mt-10"}}
+            <p>
+              {{t "globalDnsPage.entriesPage.projectHelp" htmlSafe=true}}
+            </p>
+          {{/banner-message}}
+        </div>
+      </div>
+      <div class="row">
         <div class="col span-6 mb-0">
           <label
             class="acc-label"
@@ -150,15 +159,6 @@
         </div>
       </div>
       <div class="row">
-        <div class="col span-12">
-          {{#banner-message icon="icon-info" color="bg-info mb-0 mt-10"}}
-            <p>
-              {{t "globalDnsPage.entriesPage.projectHelp" htmlSafe=true}}
-            </p>
-          {{/banner-message}}
-        </div>
-      </div>
-      <div class="row">
         <div class="col span-3">
           <label
             class="acc-label"
@@ -187,7 +187,7 @@
        expand=(action expandFn)
     }}
       {{form-members-global-access
-        ownerOnly=true
+        optionsForAccessType=memberAccessTypes
         readOnly=false
         resource=model.globaldns
         addAuthorizedPrincipal=(action "addAuthorizedPrincipal")
@@ -202,9 +202,9 @@
   {{top-errors errors=errors}}
   {{save-cancel
     editing=(eq mode "edit")
-    cancel="cancel"
+    cancel=(action "cancel")
     classNames="text-center mt-20"
-    save="save"
+    save=(action "save")
     saveDisabled=saveDisabled
   }}
 </section>

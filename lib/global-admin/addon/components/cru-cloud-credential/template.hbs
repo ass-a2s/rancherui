@@ -207,11 +207,10 @@
 
 
   <div class="footer-actions">
-    {{top-errors errors=errors}}
     {{save-cancel
       cancel=cancelAdd
       editing=isEdit
-      save="save"
+      save=(action "save")
       savingLabel=savingLabel
     }}
   </div>
